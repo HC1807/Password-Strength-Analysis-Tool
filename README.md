@@ -1,7 +1,7 @@
         
 # PASSWORD STRENGTH CHECKER
-
-This project is a Python-based Password Strength Checker tailored to enhance the security of LinkedIn accounts. It provides users with instant feedback on their password's strength while creating or updating account credentials. The tool evaluates passwords against specific security policies and general best practices to help users create strong, secure passwords.
+A Password Strength Checker is a tool designed to assess a password's quality and security level. It provides feedback on how resistant a password is to being guessed or cracked using common attack methods, such as brute force or dictionary attacks
+This project is a Python-based Password Strength Checker tailored to enhance security. It provides users with instant feedback on their password strength while creating or updating account credentials. The tool evaluates passwords against specific security policies and general best practices to help users create strong, secure passwords.
 
 
 # Features
