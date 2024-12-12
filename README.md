@@ -93,14 +93,8 @@ Execution Block:
 Ensures the script runs only when executed directly (not when imported as a module).
 Calls the main() function to start the program.
 
-# Main function to test password
-def main():
-    password = input("Enter your password: ")
-    result = check_password_strength(password)
-    print(result)
 
-if __name__ == "__main__":
-    main()
+
 # code
     def check_password_strength(password):
     # Initial score
