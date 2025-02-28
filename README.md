@@ -4,9 +4,13 @@ A password strength checker is a tool that evaluates the security level of a pas
 # How it works
 
 * Length Check – Longer passwords are generally stronger.
+* 
 * Character Variety – Use of uppercase, lowercase, numbers, and special characters increases strength.
+* 
 * Common Patterns Detection – Avoids weak passwords like "123456" or "password".
+* 
 * Dictionary Attack Prevention – Checks against common words and leaked passwords.
+  
 
 # Code
     def check_password_strength(password):
@@ -50,6 +54,7 @@ A password strength checker is a tool that evaluates the security level of a pas
    # Defining the Password Strength Function
     def check_password_strength(password):
 * Purpose: This function evaluates a given password based on specific security criteria.
+  
 * Functionality: Uses conditional checks to verify password length, digits, and character types.
 
   # Checking Password Length
@@ -58,21 +63,27 @@ A password strength checker is a tool that evaluates the security level of a pas
       else:
       print("Password should be at least 8 characters long.")
   *Purpose: Ensure the password is at least 8 characters long, which is a standard security requirement.
+  
   *If the condition is met, the score increases by 1.
+  
   *If the password is too short, a warning message is displayed.
 
   # Checking for Digits in Password
           if any(char.isdigit() for char in password):
           score += 1
   *Purpose: Ensure the password contains at least one numeric digit (0-9).
+  
   *Uses any() to scan the password for numeric characters.
+  
   *Increases the score by 1 if a digit is found.
 
   # Checking for Lowercase Letters
        if any(char.islower() for char in password):
       score += 1
   *Purpose: Ensure the password includes at least one lowercase letter (a-z).
+  
   *Uses any() to detect lowercase characters.
+  
   *Increases the score by 1 if present
 
   # Checking for Uppercase Letters
@@ -88,8 +99,11 @@ A password strength checker is a tool that evaluates the security level of a pas
       else:
       return "Weak Password"
   * Purpose: Classifies password strength based on the accumulated score.
+  * 
   *A score of 4 means a Strong Password.
+
   *A score of 3 means Medium Strength Password.
+  
   *A score of 2 or lower means Weak Password.
 
 # Getting User Input and Running the Function
@@ -101,16 +115,22 @@ A password strength checker is a tool that evaluates the security level of a pas
     if __name__ == "__main__":
     main()
 *Purpose: Takes user input and checks password strength using check_password_strength().
+
 *Prompts the user to enter a password.
+
 *Calls the function and prints the result.
+
 *Runs the program only if executed as the main script "(if __name__ == "__main__":)".
 
 # Running the Script
     python password_checker.py
     Save the script as password_checker.py.
 *Open a terminal or command prompt.
+
 *Navigate to the script directory.
+
 *Enter a password when prompted.
+
 *View the password strength classification.
 
 # Example Output :
