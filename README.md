@@ -1,131 +1,44 @@
-        
-# PASSWORD STRENGTH CHECKER
-A Password Strength Checker is a tool designed to assess a password's quality and security level. It provides feedback on how resistant a password is to being guessed or cracked using common attack methods, such as brute force or dictionary attacks
-This project is a Python-based Password Strength Checker tailored to enhance security. It provides users with instant feedback on their password strength while creating or updating account credentials. The tool evaluates passwords against specific security policies and general best practices to help users create strong, secure passwords.
-
-
-# Features
-
-
-Provides instant feedback on password strength, rated as Weak, Moderate, or Strong.
-
-
-Ensures the password meets a minimum length requirement (default: 8 characters).
-Encourages users to create longer passwords for added security.
-
-
-Validates the presence of:
-Uppercase letters (e.g., A-Z).
-Lowercase letters (e.g., a-z).
-Numbers (e.g., 0-9).
-Special characters (e.g., @, #, $, %).
-Highlights missing components and provides suggestions.
-Pattern Detection
-
-Identifies weak patterns like sequential characters (e.g., "12345" or "abcdef").
-Flags repeated characters (e.g., "aaaaaa").
-Dictionary and Common Password Check
-
-Detects dictionary words and common passwords (e.g., "password123").
-Uses a pre-defined list of commonly used or compromised passwords.
-Breach Check (Optional)
-
-Integrates with external databases (e.g., "Have I Been Pwned?") to detect previously leaked passwords.
-Entropy Calculation
-
-Measures the randomness and unpredictability of the password.
-Provides an estimate of how resistant the password is to brute force attacks.
-Customizable Policies
-
-Allows customization of password policies, such as minimum length, required character types, and banned patterns.
-User-Friendly Output
-
-Displays clear, actionable feedback to improve password strength.
-Cross-Platform Compatibility
-
-Can run on any platform with Python installed (Windows, macOS, Linux).
-
-
+# Password strength checker
+A password strength checker is a tool that evaluates the security level of a password based on various criteria, such as length, complexity, and predictability. It helps users create stronger passwords by providing feedback on weaknesses and suggesting improvements.
 
 # How it works
 
- # check_password_strength(password)
+* Length Check – Longer passwords are generally stronger.
+* Character Variety – Use of uppercase, lowercase, numbers, and special characters increases strength.
+* Common Patterns Detection – Avoids weak passwords like "123456" or "password".
+* Dictionary Attack Prevention – Checks against common words and leaked passwords.
 
-Purpose: Checks the password's strength and returns a descriptive result.
-
-# Steps:
-Initialize a Score:
-It starts with a score of 0 that increases as the password meets certain criteria.
-
-Check Password Length:
-
-If the password is at least 8 characters long, add 1 to the score.
-If not, print a message: "Password should be at least 8 characters long."
-
-# char.isdigit()
-Check for Digits:
-Uses any # (char.isdigit() for char in password) to determine if the password contains at least one digit. If true, add 1 to the score.
-
-# char.islower()
-Check for Lowercase Letters:
-Uses any # (char.islower() for char in password) to check for lowercase letters. If true, add 1 to the score.
-
-# char.isupper()
-Check for Uppercase Letters: 
-Uses any # (char.isupper() for char in password) to check for uppercase letters. If true, add 1 to the score.
-
-Determine Strength:
-Based on the total score:
-4: "Strong Password"
-3: "Medium Strength Password"
-<3: "Weak Password"
-
- # main()
-
-Purpose: Entry point of the script for user interaction.
-Steps:
-Prompts the user to input a password.
-Calls the check_password_strength function with the user-provided password.
-Prints the result returned by the function.
-Execution Block:
-
-# if __name__ == "__main__":
-Ensures the script runs only when executed directly (not when imported as a module).
-Calls the main() function to start the program.
-
-
-
-# code
+# Code
     def check_password_strength(password):
     # Initial score
     score = 0
-    
+
     # Check length
     if len(password) >= 8:
-        score += 1
+    score += 1
     else:
-        print("Password should be at least 8 characters long.")
-    
+    print("Password should be at least 8 characters long.")
+
     # Check if it contains digits
     if any(char.isdigit() for char in password):
-        score += 1
-    
-    # Check if it contains lowercase letters
-    if any(char.islower() for char in password):
-        score += 1
-    
-    # Check if it contains uppercase letters
-    if any(char.isupper() for char in password):
-        score += 1
+    score += 1
 
-     Determine password strength
+        # Check if it contains lowercase letters
+        if any(char.islower() for char in password):
+    score += 1
+
+        # Check if it contains uppercase letters
+    if any(char.isupper() for char in password):
+    score += 1
+
+    Determine password strength
     if score == 4:
-        return "Strong Password"
+    return "Strong Password"
     elif score == 3:
-        return "Medium Strength Password"
+    return "Medium Strength Password"
     else:
-        return "Weak Password"
-        def main():
+    return "Weak Password"
+    def main():
     password = input("Enter your password: ")
     result = check_password_strength(password)
     print(result)
@@ -133,6 +46,91 @@ Calls the main() function to start the program.
     if __name__ == "__main__":
     main()
 
+# Code explanation
+   # Defining the Password Strength Function
+    def check_password_strength(password):
+* Purpose: This function evaluates a given password based on specific security criteria.
+* Functionality: Uses conditional checks to verify password length, digits, and character types.
+
+  # Checking Password Length
+      if len(password) >= 8:
+      score += 1
+      else:
+      print("Password should be at least 8 characters long.")
+  *Purpose: Ensure the password is at least 8 characters long, which is a standard security requirement.
+  *If the condition is met, the score increases by 1.
+  *If the password is too short, a warning message is displayed.
+
+  # Checking for Digits in Password
+          if any(char.isdigit() for char in password):
+          score += 1
+  *Purpose: Ensure the password contains at least one numeric digit (0-9).
+  *Uses any() to scan the password for numeric characters.
+  *Increases the score by 1 if a digit is found.
+
+  # Checking for Lowercase Letters
+       if any(char.islower() for char in password):
+      score += 1
+  *Purpose: Ensure the password includes at least one lowercase letter (a-z).
+  *Uses any() to detect lowercase characters.
+  *Increases the score by 1 if present
+
+  # Checking for Uppercase Letters
+      if any(char.isupper() for char in password):
+      score += 1
+  *Purpose: Ensure the password contains at least one uppercase letter (A-Z).
+
+  # Determining Password Strength
+      if score == 4:
+      return "Strong Password"
+      elif score == 3:
+      return "Medium Strength Password"
+      else:
+      return "Weak Password"
+  * Purpose: Classifies password strength based on the accumulated score.
+  *A score of 4 means a Strong Password.
+  *A score of 3 means Medium Strength Password.
+  *A score of 2 or lower means Weak Password.
+
+# Getting User Input and Running the Function
+    def main():
+    password = input("Enter your password: ")
+    result = check_password_strength(password)
+    print(result)
+
+    if __name__ == "__main__":
+    main()
+*Purpose: Takes user input and checks password strength using check_password_strength().
+*Prompts the user to enter a password.
+*Calls the function and prints the result.
+*Runs the program only if executed as the main script "(if __name__ == "__main__":)".
+
+# Running the Script
+    python password_checker.py
+    Save the script as password_checker.py.
+*Open a terminal or command prompt.
+*Navigate to the script directory.
+*Enter a password when prompted.
+*View the password strength classification.
+
+# Example Output :
+* WEAK PASSWORD :
+* Enter your password: hello123
+* Weak Password
+
+* STRONG PASSWORD :
+* Enter your password: P@ssw0rd
+* Strong Password
 
 
-        
+
+
+
+
+
+
+    
+
+
+
+
