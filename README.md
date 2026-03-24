@@ -1,4 +1,4 @@
-# Password strength checker
+# Password Strength Analysis Tool
 A password strength checker is a tool that evaluates the security level of a password based on various criteria, such as length, complexity, and predictability. It helps users create stronger passwords by providing feedback on weaknesses and suggesting improvements.
 
 # How it works
